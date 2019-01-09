@@ -1,6 +1,8 @@
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 
 import com.kbase.jdbc.ResultSetImpl;
 import com.kbase.jdbc.StatementImpl;
@@ -15,7 +17,7 @@ public class SetValueTest {
         StatementImpl stmt =null;
         ResultSetImpl rs = null;
         conn = SetValueTest.getConn();
-        String sql = "SELECT * FROM UU_STREAM  WHERE id = 2";
+        String sql = "SELECT * FROM UU_STREAM  WHERE pid =3";
         stmt = (StatementImpl) conn.createStatement();
         rs=(ResultSetImpl) stmt.executeQuery(sql,false);
         //修改
@@ -38,7 +40,7 @@ public class SetValueTest {
              *            缓冲区大小
              * @return 若函数执行成功，返回大于等于0，否则小于0
              **/
-            long result = rs.KBaseSetFieldValue(1, "你好，aaa我是修改记录的adadas施工方三房", "你好，aaa我是修改记录的adadas施工方三房".length());
+            long result = rs.KBaseSetFieldValue(1, "你好，aaa我是修改记录的adadas施工方三房"+ LocalDateTime.now(), "你好，aaa我是修改记录的adadas施工方三房".length());
             /**
              * 执行增加、修改记录的写记录操作
              *
@@ -53,6 +55,7 @@ public class SetValueTest {
              *         TPI_Update 执行之后，hSet所指向的记录集会发生改变
              **/
             rs.KBaseUpdate(true);
+            System.out.println("ok");
         }
         //新增
 		/*while (rs.next()) {

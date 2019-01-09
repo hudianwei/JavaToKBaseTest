@@ -10,7 +10,7 @@ import kbase.struct.TPI_RETURN_RESULT;
 import com.kbase.jdbc.ConnectionImpl;
 
 public class SmartReminder {
-    public static final String url = "jdbc:kbase://192.168.25.210";// kbase服务器地址
+    public static final String url = "jdbc:kbase://192.168.105.111";// kbase服务器地址
     public static final String driver = "com.kbase.jdbc.Driver";
     public static final String username = "DBOWN";
     public static final String password = "";

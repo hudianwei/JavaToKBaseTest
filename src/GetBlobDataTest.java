@@ -22,7 +22,7 @@ public class GetBlobDataTest {
         StatementImpl stmt =null;
         ResultSetImpl rs = null;
         conn = GetBlobDataTest.getConn();
-        String sql = "SELECT * FROM UU_STREAM  WHERE id = 1";
+        String sql = "SELECT * FROM UU_STREAM  WHERE pid = 5";
         stmt = (StatementImpl) conn.createStatement();
         rs=(ResultSetImpl) stmt.executeQuery(sql,true);
         int i=0;
@@ -53,7 +53,7 @@ public class GetBlobDataTest {
              * Blob getBlobBinary(int columnIndex, int offset, int bufLen) throws SQLException {
              **/
             Blob myBlob = (Blob) rs.getBlobBinary(2,0,1024*1024*2);
-            BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("D:/testtest"+i+++".jpeg"));
+            BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("E:/testtes2t"+i+".jpeg"));
             InputStream in = myBlob.getBinaryStream();
             byte[] b = new byte[1024];
             int len;

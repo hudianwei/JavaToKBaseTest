@@ -21,13 +21,13 @@ public class SetBlobDataTest {
         StatementImpl stmt =null;
         ResultSetImpl rs = null;
         conn = SetBlobDataTest.getConn();
-        String sql = "SELECT * FROM UU_STREAM  WHERE id = 1";
+        String sql = "SELECT * FROM UU_STREAM  WHERE pid =5";
         stmt = (StatementImpl) conn.createStatement();
         rs=(ResultSetImpl) stmt.executeQuery(sql,true);
 
         //updateBlobBinary测试
         while (rs.next()) {
-            byte[] bytes = image2Bytes("D:/test.jpeg");
+            byte[] bytes = image2Bytes("/root/testtest0.jpeg");
             /**
              * 修改字段值， 设置或追加超大字段内容 主要用于设置FIELD_DOB[数字对象字段]的字段值，注意，此调用一般用于设置FIELD_DOB的值，
              * 如果用于设置其它字段的值，则此时nType必须为0，只能覆盖式写入,否则此调用总是失败 注：参数 rec
